@@ -128,10 +128,14 @@ function pegarNumOutro () {
     arrayNumOutro.push(num);
 }
 function somararray () {
-    var max = arrayNumOutro.reduce((accum, curr) => accum + curr);
-    document.getElementById('somarray').setAttribute("value", max);
-}
+    let somaa = 0;
 
+    for (let i = 0; i < arrayNumOutro.length; i++) {
+        somaa += arrayNumOutro[i];
+    }
+
+    document.getElementById('somarray').setAttribute("value", somaa);
+}
 
 /*8. Número Primo
 Descrição:
@@ -140,47 +144,110 @@ Tarefas:
 Crie uma função que receba um número.
 Verifique se ele é divisível apenas por 1 e por ele mesmo.
 Exiba "É primo" ou "Não é primo".
+*/
+function verificarPrimo() {
+    var num = parseFloat(document.getElementById('num3').value);
 
-9. Fatorial de um Número
+    document.getElementById('primoounao').setAttribute("value", primo);
+}
+
+
+/*9. Fatorial de um Número
 Descrição:
 Calcule o fatorial de um número informado pelo usuário.
 Tarefas:
 Crie uma função que receba um número.
 Use um loop para multiplicar os números de 1 até o número informado.
 Exiba o resultado no console.
+*/
+function fatoriar() {
+    var num = parseInt(document.getElementById('num4').value);
+    var resultadoFat = 1;
 
-10. Verificar Palíndromo
+    for (let cont = 1; cont <= num; cont++){
+        resultadoFat *= cont;
+    }
+    document.getElementById('fatorial').setAttribute("value", resultadoFat);
+}
+
+/*10. Verificar Palíndromo
 Descrição:
 Verifique se uma palavra informada pelo usuário é um palíndromo (lê-se igual de trás para frente).
 Tarefas:
 Crie uma função que receba uma string.
 Inverta a string e compare com o original.
 Exiba no console se a palavra é ou não um palíndromo.
+*/
+function testarpalindromo(){
+    var palavr = document.getElementById('palavr').value;
 
-11. Contar Vogais em uma Frase
+    var palindr = palavr.split("").reverse().join("");
+
+    if (palavr === palindr){
+        document.getElementById('results').setAttribute("value", "É um palíndromo");
+        return;
+    }
+    document.getElementById('results').setAttribute("value", "Não é palíndromo");
+}
+
+/*11. Contar Vogais em uma Frase
 Descrição:
 Dada uma frase, conte o número de vogais.
 Tarefas:
 Peça ao usuário uma frase.
 Use um loop para verificar cada caractere.
 Conte as vogais (a, e, i, o, u) e exiba o total.
+*/
+function contaVogal (){
+    var frase = document.getElementById('frase').value;
+    var vogal = 0;
+    
+    for (let i = 0; i <=frase.length; i++){
+        var verifica = frase[i];
+        if ('aeiou'.includes(verifica)) {
+            vogal++;
+        }
+    }
+    document.getElementById('resultPalindromo').setAttribute("value", vogal);
+}
 
-12. Gerar Números Aleatórios
+
+/*12. Gerar Números Aleatórios
 Descrição:
 Gere um número aleatório entre 1 e 100.
 Tarefas:
 Use a função Math.random e ajuste o intervalo para 1 a 100.
 Exiba o número gerado no console.
+*/
+function aleatorizar(){
+    let x = Math.floor((Math.random() * 100) + 1);
+    document.getElementById('aleatorizarresult').setAttribute("value", x);
+}
 
-13. Substituir Números Negativos por Zero
+
+/*13. Substituir Números Negativos por Zero
 Descrição:
 Dado um array de números, substitua todos os números negativos por zero.
 Tarefas:
 Crie um array como [4, -3, 2, -1, 0].
 Use um loop para verificar cada número.
 Substitua os números negativos por 0 e exiba o array no console.
+*/
+const arrayPegarArray = [];
+function pegarArray(){
+    var nun = parseFloat(document.getElementById('nun').value);
+    arrayPegarArray.push(nun);
+}
+function coisasnegativo(){
+    for (let i = 0; i <=arrayPegarArray.length; i++){
+        var verifica = frase[i];
+        if ('-'.includes(verifica)) {
+            /*terminar ainda*/
+        }
+    }
+}
 
-14. Verificar Palavras Proibidas em um Texto
+/*14. Verificar Palavras Proibidas em um Texto
 Descrição:
 Verifique se uma frase contém palavras proibidas.
 Tarefas:
