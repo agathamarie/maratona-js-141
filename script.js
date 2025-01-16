@@ -4,55 +4,136 @@ Peça ao usuário dois números e exiba a soma deles.
 Tarefas:
 Crie uma função soma que receba dois números como parâmetros.
 Exiba o resultado no console ou em um alert.
+*/
+function soma () {
+    var n1 = parseFloat(document.getElementById('n1').value);
+    var n2 = parseFloat(document.getElementById('n2').value);
 
-2. Verificação de Par ou Ímpar
+    var resultado = n1 + n2
+
+    document.getElementById('resultado').setAttribute("value", resultado);
+}
+
+
+/*2. Verificação de Par ou Ímpar
 Descrição:
 Peça ao usuário um número e diga se ele é par ou ímpar.
 Tarefas:
 Crie uma função que receba um número.
 Verifique se o número é divisível por 2.
 Exiba no console "O número é par" ou "O número é ímpar".
+*/
+function poui () {
+    var num = parseFloat(document.getElementById('num').value);
 
-3. Contagem de Números
+
+    if (num % 2 == 0) {
+        resultado = "Par"
+    }
+    else{
+        resultado = "Ímpar"
+    }
+
+    document.getElementById('resultadopoui').setAttribute("value", resultado);
+}
+
+/*3. Contagem de Números
 Descrição:
 Exiba os números de 1 a 10 usando um loop.
 Tarefas:
 Utilize um loop for para imprimir os números no console.
 Modifique o exercício para usar um while.
+*/
 
-4. Tabuada de um Número
+function loop () {
+    const section = document.querySelector('section');
+
+    for (var i = 1; i <=10; i++){
+        var textnum = document.createElement('p');
+        textnum.innerHTML = i;
+        document.body.appendChild(textnum, section);
+    }
+}
+loop();
+
+/*4. Tabuada de um Número
 Descrição:
 Crie uma tabuada para um número informado pelo usuário.
 Tarefas:
 Peça ao usuário um número.
 Use um loop for para multiplicar o número de 1 a 10.
 Exiba o resultado no console.
+*/
+function tabuada (){
+    var num = parseFloat(document.getElementById('num2').value);
 
-5. Encontrar o Maior Número em uma Lista
+    const div = document.querySelector('div');
+    for (var n = 1; n <=10; n++){
+        var text = document.createElement('p');
+        text.innerText = num + ' x ' + n + ' = ' + n * num;
+        document.body.appendChild(text, div);
+    }
+}
+
+/*5. Encontrar o Maior Número em uma Lista
 Descrição:
 Dado um array de números, encontre o maior valor.
 Tarefas:
 Crie um array como [3, 7, 2, 9, 5].
 Use um loop para comparar os números e encontrar o maior.
 Exiba o maior número no console.
+*/
+const arrayNum = [];
 
-6. Inverter uma Palavra
+function pegarNum () {
+    var num = parseFloat(document.getElementById('nuns').value);
+    arrayNum.push(num);
+}
+function verificar () {
+    var max = Math.max.apply(null, arrayNum);
+    document.getElementById('verific').setAttribute("value", max);
+}
+
+/*6. Inverter uma Palavra
 Descrição:
 Peça ao usuário uma palavra e exiba-a invertida.
 Tarefas:
 Crie uma função que receba uma string.
 Converta a string para um array com o método split.
 Inverta a ordem com o método reverse e transforme novamente em string com join.
+*/
+function palavra () {
+    var palav = document.getElementById('palav').value;
 
-7. Soma de Elementos de um Array
+    var palavarray = palav.split('')
+    palavarray.reverse();
+    var resultado = palavarray.join('');
+
+    document.getElementById('aaa').setAttribute("value", resultado);
+}
+
+
+/*7. Soma de Elementos de um Array
 Descrição:
 Calcule a soma dos elementos de um array.
 Tarefas:
 Crie um array como [1, 2, 3, 4, 5].
 Use um loop ou o método reduce para somar os valores.
 Exiba o resultado no console.
+*/
+const arrayNumOutro = [];
 
-8. Número Primo
+function pegarNumOutro () {
+    var num = parseFloat(document.getElementById('nunsoutro').value);
+    arrayNumOutro.push(num);
+}
+function somararray () {
+    var max = arrayNumOutro.reduce((accum, curr) => accum + curr);
+    document.getElementById('somarray').setAttribute("value", max);
+}
+
+
+/*8. Número Primo
 Descrição:
 Verifique se um número informado pelo usuário é primo.
 Tarefas:
