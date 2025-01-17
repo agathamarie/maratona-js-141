@@ -238,13 +238,15 @@ function pegarArray(){
     var nun = parseFloat(document.getElementById('nun').value);
     arrayPegarArray.push(nun);
 }
+
 function coisasnegativo(){
-    for (let i = 0; i <=arrayPegarArray.length; i++){
-        var verifica = frase[i];
-        if ('-'.includes(verifica)) {
-            /*terminar ainda*/
+    for (let i = 0; i <= arrayPegarArray.length; i++){
+        var verif = arrayPegarArray[i];
+        if (verif < 0 ) {
+            arrayPegarArray.splice(i, 1, '0');
         }
     }
+    document.getElementById('arrayzero').setAttribute("value", arrayPegarArray);
 }
 
 /*14. Verificar Palavras Proibidas em um Texto
@@ -254,8 +256,30 @@ Tarefas:
 Crie um array de palavras proibidas como ['palavra1', 'palavra2'].
 Peça ao usuário uma frase.
 Verifique se a frase contém alguma palavra do array e exiba uma mensagem de alerta.
+*/
+const palavrasProibidas = ['inveja', 'vergonha', 'medo', 'raiva'];
 
-15. Gerar uma Lista de Números Pares
+function verificarPalavras() {
+    var texto = document.getElementById('texto').value;
+
+    var palavras = texto.split(' ');
+    var contProibida = 0;
+
+    for (let i = 0; i < palavras.length; i++) {
+        var palavraAtual = palavras[i];
+        if (palavrasProibidas.includes(palavraAtual)) {
+            contProibida++;
+        }
+    }
+    if (contProibida > 0) {
+        alert(`Você digitou ${contProibida} palavra(s) proibida(s)! Cuidado :0`);
+    } else {
+        alert("Você não digitou nenhuma palavra proibida! Parabéns :)");
+    }
+}
+
+
+/*15. Gerar uma Lista de Números Pares
 Descrição:
 Crie uma lista de números pares entre 1 e 20.
 Tarefas:
