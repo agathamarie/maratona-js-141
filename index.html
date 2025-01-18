@@ -32,8 +32,11 @@
     <br><br>
 
     <p>Exercicio 3 - Contagem de Números</p>
-    <section id="nums"></section>
+    <section id="nums">
+        <input type="button" onclick="javascript:loop();" value="Enviar">
 
+    </section>
+    
     <br><br>
 
     <p>Exercicio 4 - Tabuada de um Número</p>
@@ -120,18 +123,26 @@
 
     <p>Exercicio 13 - Substituir Números Negativos por Zero</p>
     <form method="post">
-        <input id="nun" type="number" placeholder="Adicione seus números: ">
+        <input id="nun" type="number" placeholder="Adicione seus números ">
         <input type="button" onclick="javascript:pegarArray();" value="Enviar">
         <input type="button" onclick="javascript:coisasnegativo();" value="Somar">
-        <input type="text" id="arrayzero" value="">
+        <input type="text" id="numNegative" value="">
     </form>
 
     <br><br>
 
     <p>Exercicio 14 - Verificar Palavras Proibidas em um Texto</p>
     <form method="post">
-        <input id="texto" type="text" placeholder="Escreva seu texto: ">
+        <input id="texto" type="text" placeholder="Frase: ">
         <input type="button" onclick="javascript:verificarPalavras();" value="Enviar">
+    </form>
+
+    <br><br>
+
+    <p>Exercicio 15 - Gerar uma Lista de Números Pares</p>
+    <form method="post">
+        <input type="button" onclick="javascript:gerarNumPares();" value="Enviar">
+        <input type="text" id="numsGerados" value="">
     </form>
 
     <script src="./script.js"></script>

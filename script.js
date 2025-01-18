@@ -44,17 +44,15 @@ Tarefas:
 Utilize um loop for para imprimir os números no console.
 Modifique o exercício para usar um while.
 */
-
 function loop () {
     const section = document.querySelector('section');
 
     for (var i = 1; i <=10; i++){
         var textnum = document.createElement('p');
         textnum.innerHTML = i;
-        document.body.appendChild(textnum, section);
+        section.appendChild(textnum);
     }
 }
-loop();
 
 /*4. Tabuada de um Número
 Descrição:
@@ -64,14 +62,14 @@ Peça ao usuário um número.
 Use um loop for para multiplicar o número de 1 a 10.
 Exiba o resultado no console.
 */
-function tabuada (){
+function tabuada() {
     var num = parseFloat(document.getElementById('num2').value);
 
-    const div = document.querySelector('div');
-    for (var n = 1; n <=10; n++){
+    const div = document.querySelector('#tabuada'); // Seleciona o div corretamente
+    for (var n = 1; n <= 10; n++) {
         var text = document.createElement('p');
         text.innerText = num + ' x ' + n + ' = ' + n * num;
-        document.body.appendChild(text, div);
+        div.appendChild(text);
     }
 }
 
@@ -146,10 +144,29 @@ Verifique se ele é divisível apenas por 1 e por ele mesmo.
 Exiba "É primo" ou "Não é primo".
 */
 function verificarPrimo() {
-    var num = parseFloat(document.getElementById('num3').value);
+    var num = parseInt(document.getElementById('num3').value);
+    var primo = "É um número primo!";
+    var nprimo = "Não é um número primo!";
+
+    if (num < 2) {
+        document.getElementById('primoounao').setAttribute("value", nprimo);
+        return;
+    }
+    if (num > 2 && num % 2 == 0) {
+        document.getElementById('primoounao').setAttribute("value", nprimo);
+        return;
+    }
+
+    for (var i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i == 0) {
+            document.getElementById('primoounao').setAttribute("value", nprimo);
+            return;
+        }
+    }
 
     document.getElementById('primoounao').setAttribute("value", primo);
 }
+
 
 
 /*9. Fatorial de um Número
@@ -238,15 +255,14 @@ function pegarArray(){
     var nun = parseFloat(document.getElementById('nun').value);
     arrayPegarArray.push(nun);
 }
-
 function coisasnegativo(){
     for (let i = 0; i <= arrayPegarArray.length; i++){
-        var verif = arrayPegarArray[i];
-        if (verif < 0 ) {
-            arrayPegarArray.splice(i, 1, '0');
+        var verifica = arrayPegarArray[i];
+        if (verifica < 0) {
+            arrayPegarArray.splice(i, 1, 0);
         }
     }
-    document.getElementById('arrayzero').setAttribute("value", arrayPegarArray);
+    document.getElementById('numNegative').setAttribute("value", arrayPegarArray);
 }
 
 /*14. Verificar Palavras Proibidas em um Texto
@@ -257,27 +273,26 @@ Crie um array de palavras proibidas como ['palavra1', 'palavra2'].
 Peça ao usuário uma frase.
 Verifique se a frase contém alguma palavra do array e exiba uma mensagem de alerta.
 */
-const palavrasProibidas = ['inveja', 'vergonha', 'medo', 'raiva'];
+const arrayPalavrasProibidas = ['inveja', 'medo', 'raiva', 'vergonha'];
 
 function verificarPalavras() {
-    var texto = document.getElementById('texto').value;
+    var text = document.getElementById('texto').value.toLowerCase();
+    var texto = text.split(' ');
 
-    var palavras = texto.split(' ');
-    var contProibida = 0;
-
-    for (let i = 0; i < palavras.length; i++) {
-        var palavraAtual = palavras[i];
-        if (palavrasProibidas.includes(palavraAtual)) {
-            contProibida++;
+    var contPalavrasP = 0;
+    for (let i = 0; i < texto.length; i++) {
+        var palavra = texto[i];
+        if (arrayPalavrasProibidas.includes(palavra)) {
+            contPalavrasP++;
         }
     }
-    if (contProibida > 0) {
-        alert(`Você digitou ${contProibida} palavra(s) proibida(s)! Cuidado :0`);
+
+    if (contPalavrasP > 0) {
+        alert(`Você digitou ${contPalavrasP} palavra(s) feia(s)! Cuidado, não faça isso :(`);
     } else {
-        alert("Você não digitou nenhuma palavra proibida! Parabéns :)");
+        alert('Você não digitou nenhuma palavra feia! Parabéns :)');
     }
 }
-
 
 /*15. Gerar uma Lista de Números Pares
 Descrição:
@@ -286,3 +301,13 @@ Tarefas:
 Use um loop para gerar os números pares.
 Adicione os números a um array e exiba-o no console.
 */
+function gerarNumPares(){
+    const arrayPares = [];
+
+    for (var i = 1; i <=20; i++){
+        if (i % 2 == 0){
+            arrayPares.push(i);
+        }
+    }
+    document.getElementById('numsGerados').setAttribute("value", arrayPares);
+}
